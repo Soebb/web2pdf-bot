@@ -51,7 +51,7 @@ async def webtopdf(_, m):
         'videoformat':'mp4',
         'outtmpl': 'temp/v.mp4'
     }
-    os.system(f'youtube-dl --add-header "Cookie:" "{url}" -o "temp/v.mp4"')
+    os.system(f'youtube-dl --geo-bypass --no-check-certificate --add-header "Cookie:t" -o "temp/v.mp4" "{url}"')
     #with youtube_dl.YoutubeDL(opts) as ytdl:
     #ytdl.extract_info(url, download=True)
     time.sleep(60)
