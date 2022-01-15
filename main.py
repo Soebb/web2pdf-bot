@@ -1,6 +1,5 @@
 import os, re
-import pyppdf
-from pyppeteer.errors import PageError, NetworkError, TimeoutError
+import youtube_dl
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -44,6 +43,10 @@ async def start(bot, update):
 @Bot.on_message(filters.private & filters.text)
 async def webtopdf(_, m):
     url = m.text
+    
+    with youtube_dl.YoutubeDL(opts) as ytdl:
+        ytdl.extract_info(url, download=True)
+
     name = re.sub(r'^\w+://', '', url.lower())
     name = name.replace('/', '-') + '.pdf'
     msg = await m.reply("Processing..")
