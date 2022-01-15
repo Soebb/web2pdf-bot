@@ -1,3 +1,4 @@
 pyrogram
 tgcrypto
+requests
 https://github.com/Soebb/youtube-dl/archive/master.zip
