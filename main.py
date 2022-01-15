@@ -55,7 +55,7 @@ async def webtopdf(_, m):
         ytdl.extract_info(url, download=True)
 
     await m.reply_document(name)
-    await msg.delete()
+    #await msg.delete()
     os.remove(name)
 
 
