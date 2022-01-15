@@ -43,21 +43,17 @@ async def start(bot, update):
 @Bot.on_message(filters.private & filters.text)
 async def webtopdf(_, m):
     url = m.text
-    
+    name = 'temp/v.mp4'
+    opts = {
+        'format': 'worst',
+        'geo_bypass':True,
+        'nocheckcertificate':True,
+        'videoformat':'mp4',
+        'outtmpl': 'temp/v.mp4'
+    }
     with youtube_dl.YoutubeDL(opts) as ytdl:
         ytdl.extract_info(url, download=True)
 
-    name = re.sub(r'^\w+://', '', url.lower())
-    name = name.replace('/', '-') + '.pdf'
-    msg = await m.reply("Processing..")
-    try:
-        await pyppdf.save_pdf(name, url)
-    except PageError:
-        return await msg.edit('URL could not be resolved.')
-    except TimeoutError:
-        return await msg.edit('Timeout.')
-    except NetworkError:
-        return await msg.edit('No access to the network.')
     await m.reply_document(name)
     await msg.delete()
     os.remove(name)
