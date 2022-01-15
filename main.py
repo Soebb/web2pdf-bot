@@ -1,4 +1,4 @@
-import os, re
+import os, re, time
 import youtube_dl
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -51,9 +51,10 @@ async def webtopdf(_, m):
         'videoformat':'mp4',
         'outtmpl': 'temp/v.mp4'
     }
-    with youtube_dl.YoutubeDL(opts) as ytdl:
-        ytdl.extract_info(url, download=True)
-
+    os.system(f'youtube-dl --add-header "Cookie:" "{url}" -o "temp/v.mp4"')
+    #with youtube_dl.YoutubeDL(opts) as ytdl:
+    #ytdl.extract_info(url, download=True)
+    time.sleep(60)
     await m.reply_document(name)
     #await msg.delete()
     os.remove(name)
