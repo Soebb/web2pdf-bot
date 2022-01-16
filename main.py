@@ -1,5 +1,5 @@
 import os, re, time
-import youtube_dl
+from yt_dlp import YoutubeDL
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
@@ -45,16 +45,15 @@ async def webtopdf(_, m):
     url = m.text
     name = 'temp/v.mp4'
     opts = {
-        'add_header':'Cookie:fdhhdif',
         'geo_bypass':True,
         'nocheckcertificate':True,
         'videoformat':'mp4',
         'outtmpl':'temp/v.mp4'
     }
     #os.system(f'youtube-dl --geo-bypass --no-check-certificate --add-header "Cookie:t" -o "temp/v.mp4" "{url}"')
-    with youtube_dl.YoutubeDL(opts) as ytdl:
-        ytdl.download([url])
-    #ytdl.extract_info(url, download=True)
+    with YoutubeDL(opts) as ytdl:
+        #ytdl.download([url])
+        ytdl.extract_info(url, download=True)
     time.sleep(30)
     await m.reply_document(name)
     #await msg.delete()
