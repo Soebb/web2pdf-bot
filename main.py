@@ -45,6 +45,7 @@ async def webtopdf(_, m):
     url = m.text
     name = 'temp/v.mp4'
     opts = {
+        'format': 'best[height<=240]',
         'geo_bypass':True,
         'nocheckcertificate':True,
         'videoformat':'mp4',
@@ -55,7 +56,7 @@ async def webtopdf(_, m):
         #ytdl.download([url])
         ytdl.extract_info(url, download=True)
     time.sleep(30)
-    await m.reply_document(name)
+    await m.reply_video(name)
     #await msg.delete()
     os.remove(name)
 
