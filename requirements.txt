@@ -1,4 +1,3 @@
 pyrogram
 tgcrypto
-#https://github.com/Soebb/youtube-dl/archive/master.zip
-yt-dlp
+https://github.com/Soebb/yt-dlp/archive/master.zip
