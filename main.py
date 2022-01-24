@@ -42,6 +42,7 @@ async def start(bot, update):
 
 @Bot.on_message(filters.private & filters.text)
 async def webtopdf(_, m):
+    """
     url = m.text
     name = 'temp/v.mp4'
     opts = {
@@ -56,9 +57,11 @@ async def webtopdf(_, m):
         #ytdl.download([url])
         ytdl.extract_info(url, download=True)
     time.sleep(30)
-    await m.reply_video(name)
-    #await msg.delete()
-    os.remove(name)
+    """
+    M=await m.reply_document('requirements.txt')
+    await M.edit(M.document.file_name)
+
+    #os.remove(name)
 
 
 
