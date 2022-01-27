@@ -73,7 +73,7 @@ START_BTN = InlineKeyboardMarkup(
 
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
-    text = F.replace("split","---------------------------")
+    text = re.sub("split","--------------", F)
     reply_markup = START_BTN
     await update.reply_text(
         text=text,
