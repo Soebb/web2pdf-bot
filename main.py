@@ -78,7 +78,7 @@ F
 """
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
-    text = 
+    text = F
     reply_markup = START_BTN
     await update.reply_text(
         text=text,
