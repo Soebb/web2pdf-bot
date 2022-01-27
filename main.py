@@ -73,8 +73,8 @@ START_BTN = InlineKeyboardMarkup(
 
 F="""
 T
-\"-\"
-F
+\"------\"
+
 """
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
