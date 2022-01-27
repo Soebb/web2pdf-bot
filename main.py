@@ -36,7 +36,7 @@ https://t.me/joinchat/Rguc8ahmI2pnKElU
 
 ,سریال {fa}{e}
 
-{eval(x)}\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"
+{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}
 
 زیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت 54 {s}
 
