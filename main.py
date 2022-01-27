@@ -1,18 +1,16 @@
 import os, re, time
 from yt_dlp import YoutubeDL
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telethon import TelegramClient, events
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN")
-API_ID = os.environ.get("API_ID")
-API_HASH = os.environ.get("API_HASH")
+api_id = int(os.environ.get("API_ID", 12345))
+api_hash = os.environ.get("API_HASH")
+bot_token = os.environ.get("BOT_TOKEN")
+try:
+    Bot = TelegramClient("Bot", api_id, api_hash).start(bot_token=bot_token)
+except Exception as e:
+    print(e)
 
-Bot = Client(
-    "Web2PDF-Bot",
-    bot_token = BOT_TOKEN,
-    api_id = API_ID,
-    api_hash = API_HASH
-)
+
 s="masum"
 e=3
 fa="آپارتمان بی گناهان"
@@ -37,21 +35,12 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
      f"\n,{fa}{e}" \
      f",سریال {fa}{e}"
 
-START_TXT = """
-Hi {}, I am web2pdf Bot.
 
-> `I can download webpages as PDF.`
+@Bot.on(events.NewMessage(incoming=True, pattern="^/start"))
+async def start_(event):
+    await event.reply(text)
 
-Send any URL to get started.
 """
-
-START_BTN = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Source Code', url='https://github.com/samadii/web2pdf-bot'),
-        ]]
-    )
-
-
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
     reply_markup = START_BTN
@@ -84,7 +73,7 @@ async def webtopdf(_, m):
     await M.edit(M.document.file_name)
 
     #os.remove(name)
+"""
 
 
-
-Bot.run()
+Bot.run_until_disconnected()
