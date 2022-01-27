@@ -39,6 +39,25 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
 
 @Bot.on(events.NewMessage(incoming=True, pattern="^/start"))
 async def start_(event):
+    text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
+         f"\nقسمت {ee} سریال {fa} {s} با زیرنویس چسبیده رایگان" \
+         f"\nقسمت {e} سریال {fa} - {s} با زیرنویس فارسی چسبیده دی ال مکوین" \
+         f"\nتماشای قسمت بعدی در کانال تلگرام ما :" \
+         f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
+         f"\n,سریال {fa}" \
+         f"\n,{fa}" \
+         f"\n,{fa}{e}" \
+         f"\n,سریال {fa}{e}" \
+         f"\n-------------------------" \
+         f"\nزیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت 54 {s}" \
+         f"\nقسمت {e} سریال {fa} با زیرنویس چسبیده قسمت {ee} 54 {s}" \
+         f"\nسریال {fa} {e} {s} قسمت {ee} با زینویس چسبیده" \
+         f"\nجهت دانلود تماشای کامل این قسمت کانال تلگرام دی ال مکوین شوید :" \
+         f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
+         f"\n,سریال {fa}" \
+         f"\n,{fa}" \
+         f"\n,{fa}{e}" \
+         f",سریال {fa}{e}"
     await event.reply(text)
 
 """
