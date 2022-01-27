@@ -16,7 +16,7 @@ Bot = Client(
 s="masum"
 e=3
 fa="آپارتمان بی گناهان"
-x='\"-\"'
+x='\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"'
 F=f"""
 سریال {s} {fa} قسمت {e} با زیرنویس فارسی
 
@@ -36,7 +36,7 @@ https://t.me/joinchat/Rguc8ahmI2pnKElU
 
 ,سریال {fa}{e}
 
-{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}{eval(x)}
+{eval(x)}
 
 زیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت 54 {s}
 
