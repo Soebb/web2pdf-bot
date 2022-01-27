@@ -35,8 +35,7 @@ https://t.me/joinchat/Rguc8ahmI2pnKElU
 
 ,سریال {fa}{e}
 
-\-\
-\- \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
+\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"
 
 زیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت 54 {s}
 
@@ -71,14 +70,10 @@ START_BTN = InlineKeyboardMarkup(
         ]]
     )
 
-F="""
-T
-\"------\"
 
-"""
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
-    text = F
+    text = F.replace('"','')
     reply_markup = START_BTN
     await update.reply_text(
         text=text,
