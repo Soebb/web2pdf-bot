@@ -1,3 +1,0 @@
-telethon
-persiantools
-https://github.com/Soebb/yt-dlp/archive/master.zip
