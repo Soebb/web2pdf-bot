@@ -1,3 +1,2 @@
-pyrogram
-tgcrypto
+telethon
 https://github.com/Soebb/yt-dlp/archive/master.zip
