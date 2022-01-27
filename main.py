@@ -13,6 +13,48 @@ Bot = Client(
     api_id = API_ID,
     api_hash = API_HASH
 )
+s="masum"
+e=3
+fa="آپارتمان بی گناهان"
+F="""
+سریال {s} {fa} قسمت {e} با زیرنویس فارسی
+
+قسمت پنجاه و چهارم سریال آپارتمان بی گناهان masumlar apartmani با زیرنویس چسبیده رایگان
+
+قسمت 54 سریال آپارتمان بی گناهان - masumlar apartmani با زیرنویس فارسی چسبیده دی ال مکوین
+
+تماشای قسمت بعدی در کانال تلگرام ما : 
+
+https://t.me/joinchat/Rguc8ahmI2pnKElU
+
+,سریال آپارتمان بی گناهان
+
+,آپارتمان بی گناهان
+
+,آپارتمان بی گناهان54
+
+,سریال آپارتمان بی گناهان54
+
+------------------------------------
+
+زیرنویس چسبیده قسمت 54 سریال ترکی آپارتمان بی گناهان قسمت 54 masumlar apartmani
+
+قسمت 54 سریال آپارتمان بی گناهان با زیرنویس چسبیده قسمت پنجاه و چهارم 54 masumlar apartmani
+
+سریال آپارتمان بی گناهان 54 masumlar apartmani قسمت پنجاه و چهارم با زینویس چسبیده
+
+جهت دانلود تماشای کامل این قسمت کانال تلگرام دی ال مکوین شوید : 
+
+https://t.me/joinchat/Rguc8ahmI2pnKElU
+
+,سریال آپارتمان بی گناهان
+
+,آپارتمان بی گناهان
+
+,آپارتمان بی گناهان54
+
+,سریال آپارتمان بی گناهان54
+"""
 
 START_TXT = """
 Hi {}, I am web2pdf Bot.
@@ -31,7 +73,7 @@ START_BTN = InlineKeyboardMarkup(
 
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
-    text = START_TXT.format(update.from_user.mention)
+    text = F
     reply_markup = START_BTN
     await update.reply_text(
         text=text,
