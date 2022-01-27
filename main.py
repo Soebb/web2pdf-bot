@@ -1,7 +1,7 @@
 import os, re, time
 from yt_dlp import YoutubeDL
 from telethon import TelegramClient, events
-
+from persiantools import digits
 api_id = int(os.environ.get("API_ID", 12345))
 api_hash = os.environ.get("API_HASH")
 bot_token = os.environ.get("BOT_TOKEN")
@@ -10,13 +10,14 @@ try:
 except Exception as e:
     print(e)
 
-
+# {ee}
+ee = digits.to_word("55") + "م"
 s="masum"
 e=3
 fa="آپارتمان بی گناهان"
 x='\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"\"-\"'
 text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
-     f"\nقسمت پنجاه و چهارم سریال {fa} {s} با زیرنویس چسبیده رایگان" \
+     f"\nقسمت {ee} سریال {fa} {s} با زیرنویس چسبیده رایگان" \
      f"\nقسمت {e} سریال {fa} - {s} با زیرنویس فارسی چسبیده دی ال مکوین" \
      f"\nتماشای قسمت بعدی در کانال تلگرام ما :" \
      f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
@@ -26,8 +27,8 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
      f"\n,سریال {fa}{e}" \
      f"\n-------------------------" \
      f"\nزیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت 54 {s}" \
-     f"\nقسمت {e} سریال {fa} با زیرنویس چسبیده قسمت پنجاه و چهارم 54 {s}" \
-     f"\nسریال {fa} {e} {s} قسمت پنجاه و چهارم با زینویس چسبیده" \
+     f"\nقسمت {e} سریال {fa} با زیرنویس چسبیده قسمت {ee} 54 {s}" \
+     f"\nسریال {fa} {e} {s} قسمت {ee} با زینویس چسبیده" \
      f"\nجهت دانلود تماشای کامل این قسمت کانال تلگرام دی ال مکوین شوید :" \
      f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
      f"\n,سریال {fa}" \
