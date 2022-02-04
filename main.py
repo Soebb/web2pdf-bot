@@ -1,7 +1,7 @@
 import os, re, time
 from yt_dlp import YoutubeDL
 from telethon import TelegramClient, events
-from persiantools import digits
+
 api_id = int(os.environ.get("API_ID", 12345))
 api_hash = os.environ.get("API_HASH")
 bot_token = os.environ.get("BOT_TOKEN")
@@ -39,6 +39,8 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
 
 @Bot.on(events.NewMessage(incoming=True, pattern="^/start"))
 async def start_(event):
+    url = "
+    os.system(f'yt-dlp --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
     text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
          f"\nقسمت {ee} سریال {fa} {s} با زیرنویس چسبیده رایگان" \
          f"\nقسمت {e} سریال {fa} - {s} با زیرنویس فارسی چسبیده دی ال مکوین" \
@@ -58,7 +60,7 @@ async def start_(event):
          f"\n,{fa}" \
          f"\n,{fa}{e}" \
          f",سریال {fa}{e}"
-    await event.reply(text)
+    #await event.reply(text)
 
 """
 @Bot.on_message(filters.command(["start"]))
@@ -82,7 +84,8 @@ async def webtopdf(_, m):
         'videoformat':'mp4',
         'outtmpl':'temp/v.mp4'
     }
-    #os.system(f'youtube-dl --geo-bypass --no-check-certificate --add-header "Cookie:t" -o "temp/v.mp4" "{url}"')
+    #os.system(f'yt-dlp --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
+
     with YoutubeDL(opts) as ytdl:
         #ytdl.download([url])
         ytdl.extract_info(url, download=True)
