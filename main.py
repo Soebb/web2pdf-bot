@@ -11,7 +11,7 @@ except Exception as e:
     print(e)
 
 # {ee}
-ee = digits.to_word(55) + "م"
+ee = "م"
 s="masum"
 e=3
 fa="آپارتمان بی گناهان"
