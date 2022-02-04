@@ -39,8 +39,8 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
 
 @Bot.on(events.NewMessage(incoming=True, pattern="^/start"))
 async def start_(event):
-    url = "
-    os.system(f'yt-dlp --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
+    url = "https://daftsex.com/watch/-145958185_456243473"
+    os.system(f'yt-dlp -vU --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
     text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
          f"\nقسمت {ee} سریال {fa} {s} با زیرنویس چسبیده رایگان" \
          f"\nقسمت {e} سریال {fa} - {s} با زیرنویس فارسی چسبیده دی ال مکوین" \
