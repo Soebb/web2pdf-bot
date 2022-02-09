@@ -1,14 +1,21 @@
 import os, re, time
 from yt_dlp import YoutubeDL
-from telethon import TelegramClient, events
+from pyrogram import Client, filters
 
-api_id = int(os.environ.get("API_ID", 12345))
-api_hash = os.environ.get("API_HASH")
-bot_token = os.environ.get("BOT_TOKEN")
-try:
-    Bot = TelegramClient("Bot", api_id, api_hash).start(bot_token=bot_token)
-except Exception as e:
-    print(e)
+API_HASH = os.environ['API_HASH'] # Api hash
+API_ID = os.environ['API_ID'] # Api id/App id
+BOT_TOKEN = os.environ['BOT_TOKEN'] # Bot token
+
+dirs = 'dl/'
+
+
+# Running bot
+Bot = Client(
+    'PersianSubBot',
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 
 # {ee}
 ee = "م"
@@ -37,41 +44,6 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
      f",سریال {fa}{e}"
 
 
-@Bot.on(events.NewMessage(incoming=True, pattern="^/start"))
-async def start_(event):
-    url = "https://daftsex.com/watch/-145958185_456243473"
-    os.system(f'yt-dlp -vU --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
-    text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
-         f"\nقسمت {ee} سریال {fa} {s} با زیرنویس چسبیده رایگان" \
-         f"\nقسمت {e} سریال {fa} - {s} با زیرنویس فارسی چسبیده دی ال مکوین" \
-         f"\nتماشای قسمت بعدی در کانال تلگرام ما :" \
-         f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
-         f"\n,سریال {fa}" \
-         f"\n,{fa}" \
-         f"\n,{fa}{e}" \
-         f"\n,سریال {fa}{e}" \
-         f"\n----------------------------------" \
-         f"\nزیرنویس چسبیده قسمت {e} سریال ترکی {fa} قسمت {e} {s}" \
-         f"\nقسمت {e} سریال {fa} با زیرنویس چسبیده قسمت {ee} {e} {s}" \
-         f"\nسریال {fa} {e} {s} قسمت {ee} با زینویس چسبیده" \
-         f"\nجهت دانلود تماشای کامل این قسمت کانال تلگرام دی ال مکوین شوید :" \
-         f"\nhttps://t.me/joinchat/Rguc8ahmI2pnKElU" \
-         f"\n,سریال {fa}" \
-         f"\n,{fa}" \
-         f"\n,{fa}{e}" \
-         f",سریال {fa}{e}"
-    #await event.reply(text)
-
-"""
-@Bot.on_message(filters.command(["start"]))
-async def start(bot, update):
-    reply_markup = START_BTN
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
-    )
-
 
 @Bot.on_message(filters.private & filters.text)
 async def webtopdf(_, m):
@@ -85,16 +57,13 @@ async def webtopdf(_, m):
         'outtmpl':'temp/v.mp4'
     }
     #os.system(f'yt-dlp --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
-
     with YoutubeDL(opts) as ytdl:
         #ytdl.download([url])
         ytdl.extract_info(url, download=True)
     time.sleep(30)
-    M=await m.reply_document('requirements.txt')
-    await M.edit(M.document.file_name)
-
-    #os.remove(name)
-"""
+    M=await m.reply_document(name)
+    #await M.edit(M.document.file_name)
+    os.remove(name)
 
 
-Bot.run_until_disconnected()
+Bot.run()
