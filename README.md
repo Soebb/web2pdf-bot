@@ -1,4 +1,4 @@
-# web2pdf-bo
+# web2pdf-b
 A simple Telegram bot to print webpages to PDF
 
 ## Deploy to Heroku
