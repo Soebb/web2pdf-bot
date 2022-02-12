@@ -50,7 +50,8 @@ async def webtopdf(_, m):
     url = m.text
     name = 'temp/v.mp4'
     opts = {
-        'format': 'best[height<=240]',
+        'format':'best[height<=240]',
+        'verbose':True,
         'geo_bypass':True,
         'nocheckcertificate':True,
         'videoformat':'mp4',
