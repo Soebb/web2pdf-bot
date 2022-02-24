@@ -2,10 +2,6 @@ import os, re, time
 from yt_dlp import YoutubeDL
 from pyrogram import Client, filters
 
-API_HASH = os.environ['API_HASH'] # Api hash
-API_ID = os.environ['API_ID'] # Api id/App id
-BOT_TOKEN = os.environ['BOT_TOKEN'] # Bot token
-
 dirs = 'dl/'
 
 
