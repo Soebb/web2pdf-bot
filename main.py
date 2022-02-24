@@ -12,9 +12,9 @@ dirs = 'dl/'
 # Running bot
 Bot = Client(
     'PersianSubBot',
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=BOT_TOKEN
+    api_id="2421254",
+    api_hash="bc8ee680fd4f2720d3a24e43831c90b1",
+    bot_token="1946110292:AAETH5cW0tu45xlr_gOyrTGnoUu325XKe34"
 )
 
 # {ee}
