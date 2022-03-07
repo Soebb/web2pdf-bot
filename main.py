@@ -1,9 +1,10 @@
-import os, re
-import pyppdf
+import os, re, time
+from youtube_dl import YoutubeDL
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-
+API_HASH = os.environ['API_HASH'] # Api hash
+API_ID = os.environ['API_ID'] # Api id/App id
+BOT_TOKEN = os.environ['BOT_TOKEN'] # Bot token
 
 dirs = 'dl/'
 
@@ -11,9 +12,9 @@ dirs = 'dl/'
 # Running bot
 Bot = Client(
     'PersianSubBot',
-    api_id="2421254",
-    api_hash="bc8ee680fd4f2720d3a24e43831c90b1",
-    bot_token="1946110292:AAETH5cW0tu45xlr_gOyrTGnoUu325XKe34"
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
 )
 
 # {ee}
@@ -43,44 +44,27 @@ text=f"سریال {s} {fa} قسمت {e} با زیرنویس فارسی" \
      f",سریال {fa}{e}"
 
 
-START_TXT = """
-Hi {}, I am web2pdf Bot.
-> `I can download webpages as PDF.`
-Send any URL to get started.
-"""
-
-START_BTN = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Source Code', url='https://github.com/samadii/web2pdf-bot'),
-        ]]
-    )
-
-
-@Bot.on_message(filters.command(["start"]))
-async def start(bot, update):
-    text = START_TXT.format(update.from_user.mention)
-    reply_markup = START_BTN
-    await update.reply_text(
-        text=text,
-        disable_web_page_preview=True,
-        reply_markup=reply_markup
-    )
-
 
 @Bot.on_message(filters.private & filters.text)
 async def webtopdf(_, m):
     url = m.text
-    name = re.sub(r'^\w+://', '', url.lower())
-    name = name.replace('/', '-') + '.pdf'
-    msg = await m.reply("Processing..")
-    try:
-        await pyppdf.save_pdf(name, url)
-    except:
-        return await msg.edit('No access to the network.')
-    await m.reply_document(name)
-    await msg.delete()
+    name = 'temp/v.mp4'
+    opts = {
+        'format':'best[height<=240]',
+        'verbose':True,
+        'geo_bypass':True,
+        'nocheckcertificate':True,
+        'videoformat':'mp4',
+        'outtmpl':'temp/v.mp4'
+    }
+    #os.system(f'yt-dlp -vU --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
+    with YoutubeDL(opts) as ytdl:
+        ytdl.download([url])
+    #    ytdl.extract_info(url, download=True)
+    time.sleep(30)
+    M=await m.reply_document(name)
+    #await M.edit(M.document.file_name)
     os.remove(name)
-
 
 
 Bot.run()
