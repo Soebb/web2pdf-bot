@@ -1,5 +1,5 @@
 import os, re, time
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 from pyrogram import Client, filters
 
 API_HASH = os.environ['API_HASH'] # Api hash
