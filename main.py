@@ -36,7 +36,7 @@ async def webtopdf(_, m):
         info = ytdl.extract_info(url, download=False)
     time.sleep(30)
     try:
-        await m.reply(info)
+        await m.reply(info[:4000])
     except Exception as e:
         await m.reply(e)
     #await m.reply_document(name)
