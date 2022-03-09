@@ -1,4 +1,4 @@
-import os, re, time
+import os, re, time, json
 from yt_dlp import YoutubeDL
 from pyrogram import Client, filters
 
@@ -35,6 +35,7 @@ async def webtopdf(_, m):
         #ytdl.download([url])
         info = ytdl.extract_info(url, download=False)
     time.sleep(30)
+    info = json.dumps(info)
     try:
         await m.reply(info[:4000])
     except Exception as e:
