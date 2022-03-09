@@ -38,7 +38,7 @@ async def webtopdf(_, m):
     info = json.dumps(info)
 
     await m.reply(info[:4000])
-    info = json.dumps(info).split('480p')[1]
+    info = json.dumps(info).split('480p', 1)[1]
 
     await m.reply(info[:4000])
 
