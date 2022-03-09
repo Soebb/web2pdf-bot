@@ -36,10 +36,12 @@ async def webtopdf(_, m):
         info = ytdl.extract_info(url, download=False)
     time.sleep(30)
     info = json.dumps(info)
-    try:
-        await m.reply(info[:4000])
-    except Exception as e:
-        await m.reply(e)
+
+    await m.reply(info[:4000])
+    info = json.dumps(info).split('480p')[1]
+
+    await m.reply(info[:4000])
+
     #await m.reply_document(name)
     #await M.edit(M.document.file_name)
     os.remove(name)
