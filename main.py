@@ -32,17 +32,17 @@ async def webtopdf(_, m):
     }
     #os.system(f'yt-dlp -vU --geo-bypass --no-check-certificate -o "v.mp4" "{url}"')
     with YoutubeDL(opts) as ytdl:
-        #ytdl.download([url])
-        info = ytdl.extract_info(url, download=False)
+        ytdl.download([url])
+        #info = ytdl.extract_info(url, download=False)
     time.sleep(30)
-    info = json.dumps(info)
+    #info = json.dumps(info)
 
-    await m.reply(info[:4000])
-    info = json.dumps(info).split('480p', 1)[1]
+    #await m.reply(info[:4000])
+    #info = json.dumps(info).split('480p', 1)[1]
 
-    await m.reply(info[:4000])
+    #await m.reply(info[:4000])
 
-    #await m.reply_document(name)
+    await m.reply_document(name)
     #await M.edit(M.document.file_name)
     os.remove(name)
 
