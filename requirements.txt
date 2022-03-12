@@ -1,3 +1,4 @@
 pyrogram
 tgcrypto
+requests
 https://github.com/Soebb/ytdl/archive/master.zip
